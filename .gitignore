@@ -1,0 +1,60 @@
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Optional: Uncomment the following line if you're using Yarn as your package manager
+# /yarn-error.log
+
+# Build output
+build/
+dist/
+
+# backup
+backup/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Editor and OS files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+
+# Compiled binaries and binaries from your package manager
+*.exe
+*.dmg
+*.iso
+*.zip
+*.7z
+
+# Cache files and directories
+*.npm
+*.yarn
+.pnp/
+.pnp.js
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Jest coverage
+__coverage__/
+
+# Output of `npm pack`
+*.tgz
+
+# Project-specific files you might want to ignore
+config.js
+config.local.js
+
+# folders
+# uploads/
