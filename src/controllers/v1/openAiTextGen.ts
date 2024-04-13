@@ -17,9 +17,23 @@ const openAiTextGen = async (
   const completion = await openai.chat.completions.create({
     messages: [{ role: "system", content: query }],
     model: "gpt-3.5-turbo",
+    stream: true,
   });
 
-  //   console.log(completion.choices[0].message.content);
-  res.json({ response: completion.choices[0].message.content });
+  res.setHeader("Content-Type", "application/json");
+
+  let full = "";
+
+  for await (const part of completion) {
+    let text = part.choices[0].delta.content;
+    if (text) {
+      full += text;
+      console.clear();
+      console.log(full);
+      res.write(JSON.stringify({ response: text }));
+      res.flushHeaders();
+    }
+  }
+  res.end();
 };
 export default openAiTextGen;
